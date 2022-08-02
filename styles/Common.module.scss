@@ -5,12 +5,16 @@
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
+  @media (prefers-color-scheme: dark) {
+    background: #111;
+  }
+}
+
+.list {
+  list-style-type: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  .code {
-    background: #111;
-  }
   .logo img {
     filter: invert(1);
   }

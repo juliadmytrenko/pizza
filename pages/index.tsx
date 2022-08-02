@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import PizzaCard from "../components/PizzaCard";
 import styles from "../styles/Home.module.scss";
+import { pizzas } from "./../utils/pizzas";
 
 const Home: NextPage = () => {
   return (
@@ -19,9 +20,14 @@ const Home: NextPage = () => {
         <h2 className={styles.menu}>Menu</h2>
 
         <div className={styles.pizzaList}>
-          <PizzaCard />
-          <PizzaCard />
-          <PizzaCard />
+          {pizzas.map((pizza) => (
+            <PizzaCard
+              name={pizza.name}
+              ingredients={pizza.ingredients}
+              imageUrl={pizza.image_url}
+              key={pizza.name}
+            />
+          ))}
         </div>
       </main>
 

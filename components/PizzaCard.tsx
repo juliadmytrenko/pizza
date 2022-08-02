@@ -1,13 +1,20 @@
 import React from "react";
 import styles from "../styles/PizzaCard.module.scss";
+import commonStyles from "../styles/Common.module.scss";
 import Image from "next/image";
 
-const PizzaCard = () => {
+interface IProps {
+  name: string;
+  ingredients: string[];
+  imageUrl: string;
+}
+
+const PizzaCard = ({ name, ingredients, imageUrl }: IProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.pizzaImage}>
         <Image
-          src="/img/pizza.jpg"
+          src={imageUrl}
           width="500"
           height="500"
           layout="fill"
@@ -16,8 +23,12 @@ const PizzaCard = () => {
       </div>
 
       <div className={styles.description}>
-        <h3>Pizza peperoni</h3>
-        <p>salami, onion, tomato sauce</p>
+        <h3>Pizza {name}</h3>
+        <ul className={`${commonStyles.list} ${styles.pizzaList}`}>
+          {ingredients.map((ingredient) => (
+            <li key={ingredient}>{ingredient}, </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
