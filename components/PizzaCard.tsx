@@ -25,8 +25,11 @@ const PizzaCard = ({ name, ingredients, imageUrl }: IProps) => {
       <div className={styles.description}>
         <h3>Pizza {name}</h3>
         <ul className={`${commonStyles.list} ${styles.pizzaList}`}>
-          {ingredients.map((ingredient) => (
-            <li key={ingredient}>{ingredient}, </li>
+          {ingredients.map((ingredient, index) => (
+            <li key={ingredient}>
+              {ingredient}
+              {index == ingredients.length - 1 ? "" : ","}{" "}
+            </li>
           ))}
         </ul>
       </div>
