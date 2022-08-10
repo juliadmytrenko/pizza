@@ -23,6 +23,7 @@ const Home: NextPage = () => {
           {pizzas.map((pizza) => (
             <PizzaCard
               name={pizza.name}
+              prices={pizza.prices}
               ingredients={pizza.ingredients}
               imageUrl={pizza.image_url}
               key={pizza.name}

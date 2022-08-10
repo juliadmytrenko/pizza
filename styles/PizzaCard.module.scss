@@ -53,3 +53,15 @@
     display: inline;
   }
 }
+
+.prices {
+  span {
+    margin-right: 1rem;
+  }
+
+  th,
+  td {
+    padding-right: 1rem;
+    text-align: center;
+  }
+}

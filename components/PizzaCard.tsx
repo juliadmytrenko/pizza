@@ -5,11 +5,12 @@ import Image from "next/image";
 
 interface IProps {
   name: string;
+  prices: number[];
   ingredients: string[];
   imageUrl: string;
 }
 
-const PizzaCard = ({ name, ingredients, imageUrl }: IProps) => {
+const PizzaCard = ({ name, ingredients, imageUrl, prices }: IProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.pizzaImage}>
@@ -32,6 +33,20 @@ const PizzaCard = ({ name, ingredients, imageUrl }: IProps) => {
             </li>
           ))}
         </ul>
+        <table className={styles.prices}>
+          <tr>
+            <th>small - 30cm</th>
+            <th>medium - 40cm</th>
+            <th>big - 50cm</th>
+          </tr>
+          <tr>
+            {prices.map((price) => (
+              <td>
+                <span className={styles.pizzaPrice}>{price}zł</span>
+              </td>
+            ))}
+          </tr>
+        </table>
       </div>
     </div>
   );
