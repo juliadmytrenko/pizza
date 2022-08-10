@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/PizzaCard.module.scss";
 import commonStyles from "../styles/Common.module.scss";
 import Image from "next/image";
@@ -11,6 +11,20 @@ interface IProps {
 }
 
 const PizzaCard = ({ name, ingredients, imageUrl, prices }: IProps) => {
+  const [selectedPizza, setSelectedPizza] = useState("");
+
+  const onSelectPizzaChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedPizza(event.currentTarget.value);
+  };
+
+  const handleAddPizzaFormSubmit = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+    alert(`selected pizza: ${name} - ${selectedPizza}`);
+    // dodanie do store Redux
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.pizzaImage}>
@@ -47,6 +61,26 @@ const PizzaCard = ({ name, ingredients, imageUrl, prices }: IProps) => {
             ))}
           </tr>
         </table>
+        <form
+          className={styles.pizzaSelect}
+          onSubmit={handleAddPizzaFormSubmit}
+        >
+          <label htmlFor="pizza-select">Choose size:</label>
+
+          <select
+            name="pizza"
+            id="pizza-select"
+            value={selectedPizza}
+            onChange={onSelectPizzaChange}
+          >
+            <option value="">--Please choose an option--</option>
+            <option value="small">small - 30cm</option>
+            <option value="medium">medium - 40cm</option>
+            <option value="big">big - 50cm</option>
+          </select>
+
+          <input type="submit" value="Add to card" />
+        </form>
       </div>
     </div>
   );

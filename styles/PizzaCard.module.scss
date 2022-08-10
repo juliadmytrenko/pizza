@@ -65,3 +65,12 @@
     text-align: center;
   }
 }
+
+.pizzaSelect {
+  margin-top: 1rem;
+
+  select,
+  input {
+    margin-left: 0.5rem;
+  }
+}
