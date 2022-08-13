@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const Modal = ({ show, onClose, onSubmit, title, children }: IProps) => {
-  const nodeRef = useRef(null);
+  const nodeRef = useRef(null); // to omit the deprecation warning https://stackoverflow.com/a/65918908/11889232
   const [domReady, setDomReady] = useState(false);
 
   const closeOnEscapeKeyDown = (e: KeyboardEvent) => {
