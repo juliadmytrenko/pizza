@@ -22,6 +22,7 @@ const Home: NextPage = () => {
         title="Shopping card"
         show={showCart}
         onClose={() => setShowCart(false)}
+        onSubmit={() => console.log("checkout...")}
       >
         shopping card body
       </Modal>
