@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { addToCart, ProductSize } from "../redux/features/cart/cartSlice";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export type Pizza = {
   id: number;
@@ -22,7 +23,9 @@ const PizzaCard = (props: Pizza) => {
   const onSelectPizzaSizeChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    setSelectedPizzaSize(event.currentTarget.value);
+    const selectedSize = event.currentTarget.value;
+    setSelectedPizzaSize("");
+    handleAddToCart(selectedSize);
   };
 
   const handleAddPizzaFormSubmit = (
@@ -33,7 +36,7 @@ const PizzaCard = (props: Pizza) => {
     // dodanie do store Redux
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (selectedPizzaSize: string) => {
     if (!selectedPizzaSize) {
       alert("Choose size");
     } else {
@@ -89,18 +92,23 @@ const PizzaCard = (props: Pizza) => {
             value={selectedPizzaSize}
             onChange={onSelectPizzaSizeChange}
           >
-            <option value="">--Please choose an option--</option>
-            <option value="small">small - 30cm</option>
-            <option value="medium">medium - 40cm</option>
-            <option value="big">big - 50cm</option>
+            <option value="">
+              --Please choose an option--
+              <AiOutlineShoppingCart />
+            </option>
+            <option value="small">
+              small - 30cm
+              <AiOutlineShoppingCart />
+            </option>
+            <option value="medium">
+              medium - 40cm
+              <AiOutlineShoppingCart />
+            </option>
+            <option value="big">
+              big - 50cm
+              <AiOutlineShoppingCart />
+            </option>
           </select>
-
-          <input
-            type="submit"
-            value="Add to card"
-            aria-label="Add to cart"
-            onClick={handleAddToCart}
-          />
         </form>
       </div>
     </div>

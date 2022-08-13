@@ -23,6 +23,8 @@ const Card = ({ title, show, onClose, onSubmit }: ICart) => {
         {productsList.map((product) => (
           <>
             <span>{product.id}</span>
+            <span>{product.size}</span>
+            <span>{product.quantity}</span>
             <span>{product.name}</span>
             <span>{product.ingredients}</span>
             <span>{product.imageUrl}</span>
