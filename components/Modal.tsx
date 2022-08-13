@@ -9,9 +9,17 @@ export interface IModalProps {
   onSubmit: () => void;
   title: string;
   children?: React.ReactNode;
+  closeButtonText?: string;
 }
 
-const Modal = ({ show, onClose, onSubmit, title, children }: IModalProps) => {
+const Modal = ({
+  show,
+  onClose,
+  onSubmit,
+  title,
+  children,
+  closeButtonText,
+}: IModalProps) => {
   const nodeRef = useRef(null); // to omit the deprecation warning https://stackoverflow.com/a/65918908/11889232
   const [domReady, setDomReady] = useState(false);
 
@@ -54,7 +62,7 @@ const Modal = ({ show, onClose, onSubmit, title, children }: IModalProps) => {
               <div className={styles.body}>{children}</div>
               <div className={styles.footer}>
                 <button className={styles.button} onClick={onClose}>
-                  Close
+                  {closeButtonText ? closeButtonText : "Close"}
                 </button>
                 <button className={styles.button} onClick={onSubmit}>
                   Checkout

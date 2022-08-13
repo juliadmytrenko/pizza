@@ -6,7 +6,13 @@ interface ICart extends IModalProps {}
 
 const Card = ({ title, show, onClose, onSubmit }: ICart) => {
   return (
-    <Modal title={title} show={show} onClose={onClose} onSubmit={onSubmit}>
+    <Modal
+      title={title}
+      show={show}
+      onClose={onClose}
+      onSubmit={onSubmit}
+      closeButtonText="Keep shopping"
+    >
       <div className={styles.container}>Card</div>
     </Modal>
   );
