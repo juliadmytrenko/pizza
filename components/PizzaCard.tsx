@@ -4,7 +4,7 @@ import commonStyles from "../styles/Common.module.scss";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
-import { addToCart } from "../redux/features/cart/cartSlice";
+import { addToCart, ProductSize } from "../redux/features/cart/cartSlice";
 
 export type Pizza = {
   id: number;
@@ -14,36 +14,47 @@ export type Pizza = {
   imageUrl: string;
 };
 
-const PizzaCard = ({ id, name, ingredients, imageUrl, prices }: Pizza) => {
+const PizzaCard = (props: Pizza) => {
   const cart = useSelector((state: RootState) => state.cart.productsList);
   const dispatch = useDispatch();
-  const [selectedPizza, setSelectedPizza] = useState("");
+  const [selectedPizzaSize, setSelectedPizzaSize] = useState("");
 
-  const onSelectPizzaChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedPizza(event.currentTarget.value);
+  const onSelectPizzaSizeChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSelectedPizzaSize(event.currentTarget.value);
   };
 
   const handleAddPizzaFormSubmit = (
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    alert(`selected pizza: ${name} - ${selectedPizza}`);
+    alert(`selected pizza: ${props.name} - ${selectedPizzaSize}`);
     // dodanie do store Redux
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedPizzaSize) {
+      alert("Choose size");
+    } else {
+      const size = selectedPizzaSize as ProductSize;
+      dispatch(addToCart({ size: size, ...props }));
+    }
   };
 
   return (
     <div className={styles.card}>
       <div className={styles.pizzaImage}>
-        <Image src={imageUrl} layout="fill" objectFit="cover" />
+        <Image src={props.imageUrl} layout="fill" objectFit="cover" />
       </div>
 
       <div className={styles.description}>
-        <h3>Pizza {name}</h3>
+        <h3>Pizza {props.name}</h3>
         <ul className={`${commonStyles.list} ${styles.pizzaList}`}>
-          {ingredients.map((ingredient, index) => (
+          {props.ingredients.map((ingredient, index) => (
             <li key={ingredient}>
               {ingredient}
-              {index == ingredients.length - 1 ? "" : ","}{" "}
+              {index == props.ingredients.length - 1 ? "" : ","}{" "}
             </li>
           ))}
         </ul>
@@ -57,7 +68,7 @@ const PizzaCard = ({ id, name, ingredients, imageUrl, prices }: Pizza) => {
           </thead>
           <tbody>
             <tr>
-              {prices.map((price, index) => (
+              {props.prices.map((price, index) => (
                 <td key={index}>
                   <span className={styles.pizzaPrice}>{price}zł</span>
                 </td>
@@ -74,8 +85,8 @@ const PizzaCard = ({ id, name, ingredients, imageUrl, prices }: Pizza) => {
           <select
             name="pizza"
             id="pizza-select"
-            value={selectedPizza}
-            onChange={onSelectPizzaChange}
+            value={selectedPizzaSize}
+            onChange={onSelectPizzaSizeChange}
           >
             <option value="">--Please choose an option--</option>
             <option value="small">small - 30cm</option>
@@ -87,7 +98,7 @@ const PizzaCard = ({ id, name, ingredients, imageUrl, prices }: Pizza) => {
             type="submit"
             value="Add to card"
             aria-label="Add to cart"
-            onClick={() => dispatch(addToCart(id))}
+            onClick={handleAddToCart}
           />
         </form>
       </div>

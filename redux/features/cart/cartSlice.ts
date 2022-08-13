@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-enum Size {
-  small,
-  medium,
-  big
+export enum ProductSize {
+  small = "small",
+  medium = "medium",
+  big = "big"
 }
 
 type Product = {
   id: number,
-  size?: Size,
+  size?: ProductSize,
   quantity: number
 }
 
@@ -23,7 +23,11 @@ const initialState: CartState = {
 
 interface IAddToCartPayload {
   id: number,
-  size?: Size
+  size?: ProductSize,
+  name: string;
+  prices: number[];
+  ingredients?: string[];
+  imageUrl: string;
 }
 
 export const cartSlice = createSlice({

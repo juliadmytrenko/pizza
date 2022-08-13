@@ -3,15 +3,15 @@ import ReactDOM from "react-dom";
 import styles from "../styles/Modal.module.scss";
 import { CSSTransition } from "react-transition-group";
 
-interface IProps {
+export interface IModalProps {
   show: boolean;
   onClose: () => void;
   onSubmit: () => void;
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Modal = ({ show, onClose, onSubmit, title, children }: IProps) => {
+const Modal = ({ show, onClose, onSubmit, title, children }: IModalProps) => {
   const nodeRef = useRef(null); // to omit the deprecation warning https://stackoverflow.com/a/65918908/11889232
   const [domReady, setDomReady] = useState(false);
 

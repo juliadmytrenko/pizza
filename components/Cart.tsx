@@ -1,8 +1,15 @@
 import React from "react";
 import styles from "../styles/Card.module.scss";
+import Modal, { IModalProps } from "./Modal";
 
-const Card = () => {
-  return <div className={styles.container}>Card</div>;
+interface ICart extends IModalProps {}
+
+const Card = ({ title, show, onClose, onSubmit }: ICart) => {
+  return (
+    <Modal title={title} show={show} onClose={onClose} onSubmit={onSubmit}>
+      <div className={styles.container}>Card</div>
+    </Modal>
+  );
 };
 
 export default Card;
