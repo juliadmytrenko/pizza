@@ -92,22 +92,10 @@ const PizzaCard = (props: Pizza) => {
             value={selectedPizzaSize}
             onChange={onSelectPizzaSizeChange}
           >
-            <option value="">
-              --Please choose an option--
-              <AiOutlineShoppingCart />
-            </option>
-            <option value="small">
-              small - 30cm
-              <AiOutlineShoppingCart />
-            </option>
-            <option value="medium">
-              medium - 40cm
-              <AiOutlineShoppingCart />
-            </option>
-            <option value="big">
-              big - 50cm
-              <AiOutlineShoppingCart />
-            </option>
+            <option value="">--Please choose an option--</option>
+            <option value="small">small - 30cm</option>
+            <option value="medium">medium - 40cm</option>
+            <option value="big">big - 50cm</option>
           </select>
         </form>
       </div>
