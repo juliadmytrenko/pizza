@@ -1,10 +1,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
+import Card from "../components/Cart";
+import Modal from "../components/Modal";
 import PizzaCard from "../components/PizzaCard";
 import styles from "../styles/Home.module.scss";
 import { pizzas } from "./../utils/pizzas";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Home: NextPage = () => {
+  const [showCart, setShowCart] = useState(false);
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +18,21 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Modal
+        title="Shopping card"
+        show={showCart}
+        onClose={() => setShowCart(false)}
+      >
+        shopping card body
+      </Modal>
+      <button
+        className={styles.cartButton}
+        onClick={() => setShowCart((prevState) => !prevState)}
+      >
+        <AiOutlineShoppingCart />
+      </button>
       <main className={styles.main}>
+        {/* <Card /> */}
         <h1 className={styles.title}>Pizza</h1>
 
         <h2 className={styles.menu}>Menu</h2>

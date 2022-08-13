@@ -58,3 +58,13 @@
     text-decoration: underline;
   }
 }
+
+.cartButton {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  display: flex;
+  cursor: pointer;
+}

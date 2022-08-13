@@ -1,0 +1,14 @@
+.enterDone {
+  opacity: 1;
+  pointer-events: visible;
+  > div {
+    transform: translateY(0);
+  }
+}
+
+.exit {
+  opacity: 0;
+  > div {
+    transform: translateY(-200px);
+  }
+}
