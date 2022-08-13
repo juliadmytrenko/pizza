@@ -28,13 +28,7 @@ const PizzaCard = ({ name, ingredients, imageUrl, prices }: IProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.pizzaImage}>
-        <Image
-          src={imageUrl}
-          width="500"
-          height="500"
-          layout="fill"
-          objectFit="cover"
-        />
+        <Image src={imageUrl} layout="fill" objectFit="cover" />
       </div>
 
       <div className={styles.description}>
@@ -48,18 +42,22 @@ const PizzaCard = ({ name, ingredients, imageUrl, prices }: IProps) => {
           ))}
         </ul>
         <table className={styles.prices}>
-          <tr>
-            <th>small - 30cm</th>
-            <th>medium - 40cm</th>
-            <th>big - 50cm</th>
-          </tr>
-          <tr>
-            {prices.map((price) => (
-              <td>
-                <span className={styles.pizzaPrice}>{price}zł</span>
-              </td>
-            ))}
-          </tr>
+          <thead>
+            <tr>
+              <th>small - 30cm</th>
+              <th>medium - 40cm</th>
+              <th>big - 50cm</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {prices.map((price, index) => (
+                <td key={index}>
+                  <span className={styles.pizzaPrice}>{price}zł</span>
+                </td>
+              ))}
+            </tr>
+          </tbody>
         </table>
         <form
           className={styles.pizzaSelect}
