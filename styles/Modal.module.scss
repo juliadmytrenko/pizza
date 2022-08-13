@@ -36,3 +36,18 @@
   border-top: 1px solid ghostwhite;
   border-bottom: 1px solid ghostwhite;
 }
+
+.enterDone {
+  opacity: 1;
+  pointer-events: visible;
+  .content {
+    transform: translateY(0);
+  }
+}
+
+.exit {
+  opacity: 0;
+  .content {
+    transform: translateY(-200px);
+  }
+}

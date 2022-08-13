@@ -31,7 +31,10 @@ const Modal = ({ show, onClose, title, children }: IProps) => {
       in={show}
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}
-      classNames={fadeStyles}
+      classNames={{
+        enterDone: styles.enterDone,
+        exit: styles.exit,
+      }}
     >
       <div className={`${styles.modal}`} onClick={onClose}>
         <div className={styles.content} onClick={(e) => e.stopPropagation()}>
