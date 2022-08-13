@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import styles from "../styles/PizzaCard.module.scss";
 import commonStyles from "../styles/Common.module.scss";
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../redux/store";
+import { addToCart } from "../redux/features/cart/cartSlice";
 
-interface IProps {
+export type Pizza = {
+  id: number;
   name: string;
   prices: number[];
   ingredients: string[];
   imageUrl: string;
-}
+};
 
-const PizzaCard = ({ name, ingredients, imageUrl, prices }: IProps) => {
+const PizzaCard = ({ id, name, ingredients, imageUrl, prices }: Pizza) => {
+  const cart = useSelector((state: RootState) => state.cart.productsList);
+  const dispatch = useDispatch();
   const [selectedPizza, setSelectedPizza] = useState("");
 
   const onSelectPizzaChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -77,7 +83,12 @@ const PizzaCard = ({ name, ingredients, imageUrl, prices }: IProps) => {
             <option value="big">big - 50cm</option>
           </select>
 
-          <input type="submit" value="Add to card" />
+          <input
+            type="submit"
+            value="Add to card"
+            aria-label="Add to cart"
+            onClick={() => dispatch(addToCart(id))}
+          />
         </form>
       </div>
     </div>

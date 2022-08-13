@@ -41,6 +41,7 @@ const Home: NextPage = () => {
         <div className={styles.pizzaList}>
           {pizzas.map((pizza) => (
             <PizzaCard
+              id={pizza.id}
               name={pizza.name}
               prices={pizza.prices}
               ingredients={pizza.ingredients}

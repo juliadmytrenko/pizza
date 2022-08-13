@@ -5,18 +5,21 @@ const price = {
 
 export const pizzas = [
   {
+    id: 1,
     name: "Peperoni",
     prices: price.basic,
     ingredients: ["salami", "onion", "tomato sauce"],
     image_url: "/img/peperoni.jpg",
   },
   {
+    id: 2,
     name: "Hawaii",
     prices: price.extra,
     ingredients: ["sos", "cheese", "ham", "ananas"],
     image_url: "/img/hawaii.jpg",
   },
   {
+    id: 3,
     name: "Capricciosa",
     prices: price.basic,
     ingredients: ["sos", "cheese", "ham", "champignons"],
