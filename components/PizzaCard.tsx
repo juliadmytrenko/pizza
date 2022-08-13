@@ -12,6 +12,7 @@ export type Pizza = {
   prices: number[];
   ingredients: string[];
   imageUrl: string;
+  setShowCart: (value: boolean) => void;
 };
 
 const PizzaCard = (props: Pizza) => {
@@ -29,7 +30,7 @@ const PizzaCard = (props: Pizza) => {
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    alert(`selected pizza: ${props.name} - ${selectedPizzaSize}`);
+    // alert(`selected pizza: ${props.name} - ${selectedPizzaSize}`);
     // dodanie do store Redux
   };
 
@@ -39,6 +40,7 @@ const PizzaCard = (props: Pizza) => {
     } else {
       const size = selectedPizzaSize as ProductSize;
       dispatch(addToCart({ size: size, ...props }));
+      props.setShowCart(true);
     }
   };
 

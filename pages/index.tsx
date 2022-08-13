@@ -45,6 +45,7 @@ const Home: NextPage = () => {
               ingredients={pizza.ingredients}
               imageUrl={pizza.image_url}
               key={pizza.name}
+              setShowCart={setShowCart}
             />
           ))}
         </div>
