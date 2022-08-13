@@ -43,7 +43,7 @@ const Home: NextPage = () => {
               name={pizza.name}
               prices={pizza.prices}
               ingredients={pizza.ingredients}
-              imageUrl={pizza.image_url}
+              imageUrl={pizza.imageUrl}
               key={pizza.name}
               setShowCart={setShowCart}
             />

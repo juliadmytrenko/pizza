@@ -10,7 +10,11 @@ export enum ProductSize {
 type Product = {
   id: number,
   size?: ProductSize,
-  quantity: number
+  quantity: number,
+  name: string;
+  prices: number[];
+  ingredients?: string[];
+  imageUrl: string;
 }
 
 export interface CartState {

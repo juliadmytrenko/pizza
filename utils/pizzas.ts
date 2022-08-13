@@ -9,21 +9,21 @@ export const pizzas = [
     name: "Peperoni",
     prices: price.basic,
     ingredients: ["salami", "onion", "tomato sauce"],
-    image_url: "/img/peperoni.jpg",
+    imageUrl: "/img/peperoni.jpg",
   },
   {
     id: 2,
     name: "Hawaii",
     prices: price.extra,
     ingredients: ["sos", "cheese", "ham", "ananas"],
-    image_url: "/img/hawaii.jpg",
+    imageUrl: "/img/hawaii.jpg",
   },
   {
     id: 3,
     name: "Capricciosa",
     prices: price.basic,
     ingredients: ["sos", "cheese", "ham", "champignons"],
-    image_url: "/img/capricciosa.jpg",
+    imageUrl: "/img/capricciosa.jpg",
   },
 ];
 
