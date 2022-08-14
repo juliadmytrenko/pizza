@@ -6,6 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { addToCart, ProductSize } from "../redux/features/cart/cartSlice";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Box from "@mui/material/Box";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 export type Pizza = {
   id: number;
@@ -19,21 +24,10 @@ export type Pizza = {
 const PizzaCard = (props: Pizza) => {
   const dispatch = useDispatch();
   const [selectedPizzaSize, setSelectedPizzaSize] = useState("");
-
-  const onSelectPizzaSizeChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const selectedSize = event.currentTarget.value;
+  const onSelectPizzaSizeChange = (event: SelectChangeEvent) => {
+    const selectedSize = event.target.value as string;
     setSelectedPizzaSize("");
     handleAddToCart(selectedSize);
-  };
-
-  const handleAddPizzaFormSubmit = (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
-    event.preventDefault();
-    // alert(`selected pizza: ${props.name} - ${selectedPizzaSize}`);
-    // dodanie do store Redux
   };
 
   const handleAddToCart = (selectedPizzaSize: string) => {
@@ -80,24 +74,34 @@ const PizzaCard = (props: Pizza) => {
             </tr>
           </tbody>
         </table>
-        <form
-          className={styles.pizzaSelect}
-          onSubmit={handleAddPizzaFormSubmit}
-        >
-          <label htmlFor="pizza-select">Choose size:</label>
 
-          <select
-            name="pizza"
-            id="pizza-select"
+        <FormControl
+          sx={{
+            width: 300,
+            marginTop: 1,
+          }}
+        >
+          <InputLabel id="pizza-size-select-label">Size</InputLabel>
+          <Select
+            labelId="pizza-size-select-label"
             value={selectedPizzaSize}
+            label="Size"
             onChange={onSelectPizzaSizeChange}
           >
-            <option value="">--Please choose an option--</option>
-            <option value="small">small - 30cm</option>
-            <option value="medium">medium - 40cm</option>
-            <option value="big">big - 50cm</option>
-          </select>
-        </form>
+            <MenuItem value={"small"}>
+              <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
+              small
+            </MenuItem>
+            <MenuItem value={"medium"}>
+              <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
+              medium
+            </MenuItem>
+            <MenuItem value={"big"}>
+              <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
+              big
+            </MenuItem>
+          </Select>
+        </FormControl>
       </div>
     </div>
   );
