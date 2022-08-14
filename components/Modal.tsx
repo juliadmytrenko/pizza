@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "../styles/Modal.module.scss";
 import { CSSTransition } from "react-transition-group";
+import Button from "@mui/material/Button";
 
 export interface IModalProps {
   show: boolean;
@@ -61,12 +62,21 @@ const Modal = ({
               </div>
               <div className={styles.body}>{children}</div>
               <div className={styles.footer}>
-                <button className={styles.button} onClick={onClose}>
+                <Button
+                  variant="outlined"
+                  className={styles.button}
+                  onClick={onClose}
+                >
                   {closeButtonText ? closeButtonText : "Close"}
-                </button>
-                <button className={styles.button} onClick={onSubmit}>
+                </Button>
+                <Button
+                  variant="contained"
+                  className={styles.button}
+                  onClick={onSubmit}
+                  color="secondary"
+                >
                   Checkout
-                </button>
+                </Button>
               </div>
             </div>
           </div>

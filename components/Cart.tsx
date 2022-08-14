@@ -17,7 +17,7 @@ const Card = ({ title, show, onClose, onSubmit }: ICart) => {
       show={show}
       onClose={onClose}
       onSubmit={onSubmit}
-      closeButtonText="Keep shopping"
+      closeButtonText="Continue shopping"
     >
       <div className={styles.container}>
         {productsList.map((product) => (
