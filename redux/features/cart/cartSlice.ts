@@ -7,7 +7,7 @@ export enum ProductSize {
   big = "big"
 }
 
-type Product = {
+export type Product = {
   id: number,
   size?: ProductSize,
   quantity: number,

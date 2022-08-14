@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import styles from "../styles/Card.module.scss";
+import styles from "../styles/Cart.module.scss";
 import Modal, { IModalProps } from "./Modal";
 import PizzaCard from "./PizzaCard";
 
 interface ICart extends IModalProps {}
 
-const Card = ({ title, show, onClose, onSubmit }: ICart) => {
+const Cart = ({ title, show, onClose, onSubmit }: ICart) => {
   const productsList = useSelector(
     (state: RootState) => state.cart.productsList
   );
@@ -36,4 +36,4 @@ const Card = ({ title, show, onClose, onSubmit }: ICart) => {
   );
 };
 
-export default Card;
+export default Cart;

@@ -1,6 +1,7 @@
 import React from "react";
+import { Product } from "../redux/features/cart/cartSlice";
 
-const ProductCard = () => {
+const ProductCard = (props: Product) => {
   return <div>ProductCard</div>;
 };
 
