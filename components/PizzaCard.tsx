@@ -81,11 +81,11 @@ const PizzaCard = (props: Pizza) => {
             marginTop: 1,
           }}
         >
-          <InputLabel id="pizza-size-select-label">Size</InputLabel>
+          <InputLabel id="pizza-size-select-label">Pick size</InputLabel>
           <Select
             labelId="pizza-size-select-label"
             value={selectedPizzaSize}
-            label="Size"
+            label="Pick size"
             onChange={onSelectPizzaSizeChange}
           >
             <MenuItem value={"small"}>
