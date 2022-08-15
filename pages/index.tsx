@@ -58,7 +58,7 @@ const Home: NextPage = () => {
             <address className={styles.author}>
               by{" "}
               <a
-                rel="author"
+                rel="author noreferrer"
                 href="https://www.linkedin.com/in/juliadmytrenko/"
                 target="_blank"
               >

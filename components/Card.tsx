@@ -13,7 +13,7 @@ const Card = (props: ICard) => {
     <div className={styles.card}>
       {props.imageUrl && (
         <div className={`${styles.image} ${props.ImageClassName}`}>
-          <Image src={props.imageUrl} layout="fill" objectFit="cover" />
+          <Image src={props.imageUrl} layout="fill" objectFit="cover" alt="" />
         </div>
       )}
 
