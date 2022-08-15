@@ -43,17 +43,20 @@ export const cartSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      const find = state.productsList.find((item) => item.id === action.payload.id);
+      const find = state.productsList.find((item) => item.id === action.payload.id && item.size === action.payload.size);
       
       if (find) {
-        state.productsList = state.productsList.map((item) =>
-          (item.id === action.payload.id && item.size === action.payload.size)
-            ? {
-                ...item,
-                quantity: item.quantity + 1
-              }
-            : item
-        );
+        state.productsList = state.productsList.map((item) => {
+          if(item.id === action.payload.id && item.size === action.payload.size) {
+            return {
+              ...item,
+              quantity: item.quantity + 1
+            }
+          } 
+
+          return item
+        })
+          
       } else {
         state.productsList.push({
           ...action.payload,
