@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import styles from "../styles/PizzaCard.module.scss";
 import commonStyles from "../styles/Common.module.scss";
-import Image from "next/image";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../redux/store";
+import { useDispatch } from "react-redux";
 import { addToCart, ProductSize } from "../redux/features/cart/cartSlice";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Box from "@mui/material/Box";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Card from "./Card";
 

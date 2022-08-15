@@ -1,9 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import styles from "../styles/Cart.module.scss";
-import Modal, { IModalProps } from "./Modal";
-import PizzaCard from "./PizzaCard";
+import Modal from "./Modal";
 import ProductCard from "./ProductCard";
 
 interface ICart {
