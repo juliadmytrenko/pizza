@@ -16,10 +16,13 @@ export type Pizza = {
   prices: number[];
   ingredients: string[];
   imageUrl: string;
-  setShowCart?: (value: boolean) => void;
 };
 
-const PizzaCard = (props: Pizza) => {
+export interface IPizzaCard extends Pizza {
+  setShowCart?: (value: boolean) => void;
+}
+
+const PizzaCard = (props: IPizzaCard) => {
   const dispatch = useDispatch();
   const [selectedPizzaSize, setSelectedPizzaSize] = useState("");
   const onSelectPizzaSizeChange = (event: SelectChangeEvent) => {
@@ -33,7 +36,16 @@ const PizzaCard = (props: Pizza) => {
       alert("Choose size");
     } else {
       const size = selectedPizzaSize as ProductSize;
-      dispatch(addToCart({ size: size, ...props }));
+      dispatch(
+        addToCart({
+          size: size,
+          id: props.id,
+          name: props.name,
+          prices: props.prices,
+          ingredients: props.ingredients,
+          imageUrl: props.imageUrl,
+        })
+      );
       if (!!props.setShowCart) props.setShowCart(true);
     }
   };

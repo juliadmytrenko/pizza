@@ -34,6 +34,11 @@ interface IAddToCartPayload {
   imageUrl: string;
 }
 
+interface IIncrementDecrementPayload {
+  id: number,
+  size?: ProductSize,
+}
+
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -64,10 +69,30 @@ export const cartSlice = createSlice({
         });
       }
     },
+    increament(state, action: PayloadAction<IIncrementDecrementPayload>) {
+      state.productsList = state.productsList.map((item) =>
+        item.id === action.payload.id && item.size === action.payload.size
+          ? {
+              ...item,
+              quantity: item.quantity + 1
+            }
+          : item
+      );
+    },
+    decrement(state, action: PayloadAction<IIncrementDecrementPayload>) {
+      state.productsList = state.productsList.map((item) =>
+      item.id === action.payload.id && item.size === action.payload.size
+          ? {
+              ...item,
+              quantity: item.quantity - 1
+            }
+          : item
+      );
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart } = cartSlice.actions
+export const { addToCart, increament, decrement } = cartSlice.actions
 
 export default cartSlice.reducer

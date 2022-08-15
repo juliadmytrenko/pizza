@@ -1,9 +1,18 @@
-import React from "react";
-import { Product, ProductSize } from "../redux/features/cart/cartSlice";
+import React, { useState } from "react";
+import {
+  decrement,
+  increament,
+  Product,
+  ProductSize,
+} from "../redux/features/cart/cartSlice";
 import Card from "./Card";
 import styles from "../styles/ProductCard.module.scss";
+import IconButton from "@mui/material/IconButton";
+import { IoMdAddCircle, IoMdRemoveCircle } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
 
 interface IProductCard {
+  id: number;
   imageUrl?: string;
   size?: ProductSize;
   quantity: number;
@@ -12,6 +21,8 @@ interface IProductCard {
 }
 
 const ProductCard = (props: IProductCard) => {
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.wrapper}>
       <Card imageUrl={props.imageUrl} ImageClassName={styles.image}>
@@ -21,7 +32,23 @@ const ProductCard = (props: IProductCard) => {
             <span>size: {props.size}</span>
           </div>
           <div className={styles.quantity}>
-            <span>quantity: {props.quantity}</span>
+            <IconButton
+              onClick={() => {
+                dispatch(decrement({ id: props.id, size: props.size }));
+              }}
+              disabled={props.quantity === 1}
+            >
+              <IoMdRemoveCircle />
+            </IconButton>
+            <span>{props.quantity}</span>
+            <IconButton
+              onClick={() => {
+                dispatch(increament({ id: props.id, size: props.size }));
+              }}
+              disabled={props.quantity > 30}
+            >
+              <IoMdAddCircle />
+            </IconButton>
           </div>
         </div>
       </Card>

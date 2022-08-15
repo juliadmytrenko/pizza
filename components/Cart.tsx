@@ -27,6 +27,8 @@ const Cart = ({ title, show, onClose, onSubmit }: ICart) => {
       <div>
         {productsList.map((product) => (
           <ProductCard
+            key={`${product.id}-${product.size}`}
+            id={product.id}
             imageUrl={product.imageUrl}
             size={product.size}
             quantity={product.quantity}
