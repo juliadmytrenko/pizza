@@ -4,8 +4,14 @@ import { RootState } from "../redux/store";
 import styles from "../styles/Cart.module.scss";
 import Modal, { IModalProps } from "./Modal";
 import PizzaCard from "./PizzaCard";
+import ProductCard from "./ProductCard";
 
-interface ICart extends IModalProps {}
+interface ICart {
+  title: string;
+  show: boolean;
+  onClose: () => void;
+  onSubmit: () => void;
+}
 
 const Cart = ({ title, show, onClose, onSubmit }: ICart) => {
   const productsList = useSelector(
@@ -18,18 +24,17 @@ const Cart = ({ title, show, onClose, onSubmit }: ICart) => {
       onClose={onClose}
       onSubmit={onSubmit}
       closeButtonText="Continue shopping"
+      submitButtonText="Purchase"
     >
-      <div className={styles.container}>
+      <div>
         {productsList.map((product) => (
-          <>
-            <span>{product.id}</span>
-            <span>{product.size}</span>
-            <span>{product.quantity}</span>
-            <span>{product.name}</span>
-            <span>{product.ingredients}</span>
-            <span>{product.imageUrl}</span>
-            <span>{product.name}</span>
-          </>
+          <ProductCard
+            imageUrl={product.imageUrl}
+            size={product.size}
+            quantity={product.quantity}
+            name={product.name}
+            prices={product.prices}
+          />
         ))}
       </div>
     </Modal>
