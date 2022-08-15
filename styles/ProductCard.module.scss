@@ -1,5 +1,5 @@
 .image {
-  width: 100px;
+  max-width: 100px;
   height: 100px;
 }
 
@@ -10,6 +10,8 @@
 .wrapper {
   width: 100%;
   margin-bottom: 0.5rem;
+  border: 5px solid black;
+  border-radius: 1rem;
 }
 
 .description {

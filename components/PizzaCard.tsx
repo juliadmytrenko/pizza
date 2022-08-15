@@ -71,8 +71,9 @@ const PizzaCard = (props: Pizza) => {
 
         <FormControl
           sx={{
-            width: 300,
+            width: 200,
             marginTop: 1,
+            marginLeft: 1,
           }}
         >
           <InputLabel id="pizza-size-select-label">Pick size</InputLabel>

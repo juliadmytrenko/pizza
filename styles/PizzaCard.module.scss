@@ -4,6 +4,10 @@
   width: 800px;
   height: 300px;
   margin: 1rem auto;
+  background-color: ghostwhite;
+  border-radius: 0.5rem;
+  outline: 5px solid black;
+  color: black;
 }
 
 .title {
@@ -12,6 +16,7 @@
 
 .pizzaImage {
   width: 300px;
+  border-right: 5px solid black;
 }
 
 .pizzaList {
