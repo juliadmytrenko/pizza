@@ -15,7 +15,15 @@ const ProductCard = (props: IProductCard) => {
   return (
     <div className={styles.wrapper}>
       <Card imageUrl={props.imageUrl} ImageClassName={styles.image}>
-        <h3 className={styles.title}>Pizza {props.name}</h3>
+        <div className={styles.description}>
+          <div>
+            <h3 className={styles.title}>Pizza {props.name}</h3>
+            <span>size: {props.size}</span>
+          </div>
+          <div className={styles.quantity}>
+            <span>quantity: {props.quantity}</span>
+          </div>
+        </div>
       </Card>
     </div>
   );

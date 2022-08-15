@@ -12,7 +12,9 @@
   display: flex;
 
   .body {
-    padding: 1.5rem;
+    flex: 2;
+    padding: 1rem;
+    width: 100%;
   }
 
   &:hover,
@@ -32,11 +34,11 @@
 }
 
 .image {
+  flex: 1;
   min-width: 100px;
   height: 100%;
   position: relative;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   overflow: hidden;
-  margin-right: 1rem;
 }
