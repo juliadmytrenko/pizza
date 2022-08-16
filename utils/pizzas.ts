@@ -27,3 +27,25 @@ export const pizzas = [
   },
 ];
 
+export const extras = [
+  {
+    id: 4,
+    name: "Garlic sauce",
+    prices: 3,
+    imageUrl: "/img/capricciosa.jpg",
+  },
+  {
+    id: 5,
+    name: "fries",
+    description: "200g",
+    prices: 5,
+    imageUrl: "/img/capricciosa.jpg",
+  },
+  {
+    id: 6,
+    name: "nachos",
+    description: "200g",
+    prices: 10,
+    imageUrl: "/img/capricciosa.jpg",
+  },
+]
