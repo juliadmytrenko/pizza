@@ -53,63 +53,66 @@ const PizzaCard = (props: IPizzaCard) => {
   return (
     <div className={styles.wrapper}>
       <Card imageUrl={props.imageUrl} ImageClassName={styles.pizzaImage}>
-        <div>
-          <h3 className={styles.title}>Pizza {props.name}</h3>
-          <ul className={`${commonStyles.list} ${styles.pizzaList}`}>
-            {props.ingredients.map((ingredient, index) => (
-              <li key={ingredient}>
-                {ingredient}
-                {index == props.ingredients.length - 1 ? "" : ","}{" "}
-              </li>
-            ))}
-          </ul>
-          <table className={styles.prices}>
-            <thead>
-              <tr>
-                <th>small - 30cm</th>
-                <th>medium - 40cm</th>
-                <th>big - 50cm</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                {props.prices.map((price, index) => (
-                  <td key={index}>
-                    <span className={styles.pizzaPrice}>{price}zł</span>
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-
-          <FormControl
-            sx={{
-              width: 200,
-              marginTop: 1,
-              marginLeft: 1,
-            }}
-          >
-            <InputLabel id="pizza-size-select-label">Pick size</InputLabel>
-            <Select
-              labelId="pizza-size-select-label"
-              value={selectedPizzaSize}
-              label="Pick size"
-              onChange={onSelectPizzaSizeChange}
+        <div className={styles.content}>
+          <div>
+            <h3 className={styles.title}>Pizza {props.name}</h3>
+            <ul className={`${commonStyles.list} ${styles.pizzaList}`}>
+              {props.ingredients.map((ingredient, index) => (
+                <li key={ingredient}>
+                  {ingredient}
+                  {index == props.ingredients.length - 1 ? "" : ","}{" "}
+                </li>
+              ))}
+            </ul>
+            <FormControl
+              sx={{
+                width: 200,
+                marginTop: 1,
+                marginLeft: 1,
+              }}
             >
-              <MenuItem value={"small"}>
-                <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
-                small
-              </MenuItem>
-              <MenuItem value={"medium"}>
-                <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
-                medium
-              </MenuItem>
-              <MenuItem value={"big"}>
-                <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
-                big
-              </MenuItem>
-            </Select>
-          </FormControl>
+              <InputLabel id="pizza-size-select-label">Pick size</InputLabel>
+              <Select
+                labelId="pizza-size-select-label"
+                value={selectedPizzaSize}
+                label="Pick size"
+                onChange={onSelectPizzaSizeChange}
+              >
+                <MenuItem value={"small"}>
+                  <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
+                  small
+                </MenuItem>
+                <MenuItem value={"medium"}>
+                  <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
+                  medium
+                </MenuItem>
+                <MenuItem value={"big"}>
+                  <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
+                  big
+                </MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+          <div>
+            <table className={styles.prices}>
+              <thead>
+                <tr>
+                  <th>small - 30cm</th>
+                  <th>medium - 40cm</th>
+                  <th>big - 50cm</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {props.prices.map((price, index) => (
+                    <td key={index}>
+                      <span className={styles.pizzaPrice}>{price}zł</span>
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </Card>
     </div>
