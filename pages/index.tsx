@@ -6,6 +6,7 @@ import PizzaCard from "../components/PizzaCard";
 import styles from "../styles/Home.module.scss";
 import { pizzas } from "./../utils/pizzas";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Card from "../components/Card";
 
 const Home: NextPage = () => {
   const [showCart, setShowCart] = useState(false);
