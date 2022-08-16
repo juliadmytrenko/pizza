@@ -89,10 +89,15 @@ export const cartSlice = createSlice({
           : item
       );
     },
+    removeFromCart(state, action: PayloadAction<IIncrementDecrementPayload>) {
+      state.productsList = state.productsList.filter((item) =>
+        !(item.id === action.payload.id && item.size === action.payload.size)
+      );
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart, increament, decrement } = cartSlice.actions
+export const { addToCart, increament, decrement, removeFromCart } = cartSlice.actions
 
 export default cartSlice.reducer

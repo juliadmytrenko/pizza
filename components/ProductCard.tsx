@@ -4,12 +4,14 @@ import {
   increament,
   Product,
   ProductSize,
+  removeFromCart,
 } from "../redux/features/cart/cartSlice";
 import Card from "./Card";
 import styles from "../styles/ProductCard.module.scss";
 import IconButton from "@mui/material/IconButton";
 import { IoMdAddCircle, IoMdRemoveCircle } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
+import { BsFillTrashFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 
 interface IProductCard {
   id: number;
@@ -50,6 +52,15 @@ const ProductCard = (props: IProductCard) => {
               <IoMdAddCircle />
             </IconButton>
           </div>
+
+          <IconButton
+            className={styles.deleteButton}
+            onClick={() => {
+              dispatch(removeFromCart({ id: props.id, size: props.size }));
+            }}
+          >
+            <BsFillTrashFill className={styles.trash} />
+          </IconButton>
         </div>
       </Card>
     </div>
