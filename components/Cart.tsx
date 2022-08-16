@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import Modal from "./Modal";
+import Dialog from "./Dialog";
 import ProductCard from "./ProductCard";
 
 interface ICart {
@@ -16,7 +16,7 @@ const Cart = ({ title, show, onClose, onSubmit }: ICart) => {
     (state: RootState) => state.cart.productsList
   );
   return (
-    <Modal
+    <Dialog
       title={title}
       show={show}
       onClose={onClose}
@@ -37,7 +37,7 @@ const Cart = ({ title, show, onClose, onSubmit }: ICart) => {
           />
         ))}
       </div>
-    </Modal>
+    </Dialog>
   );
 };
 

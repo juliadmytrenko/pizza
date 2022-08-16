@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
-import Card from "../components/Cart";
-import Modal from "../components/Modal";
 import Cart from "../components/Cart";
 import PizzaCard from "../components/PizzaCard";
 import styles from "../styles/Home.module.scss";

@@ -7,6 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+import styles from "../styles/Dialog.module.scss";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -53,12 +54,14 @@ const AlertDialogSlide = ({
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>{children}</DialogContent>
       <DialogActions>
-        <Button variant="outlined" onClick={onClose}>
-          {closeButtonText}
-        </Button>
-        <Button variant="contained" color="secondary" onClick={onSubmit}>
-          {submitButtonText}
-        </Button>
+        <div className={styles.dialogButtons}>
+          <Button variant="outlined" onClick={onClose}>
+            {closeButtonText}
+          </Button>
+          <Button variant="contained" color="success" onClick={onSubmit}>
+            {submitButtonText}
+          </Button>
+        </div>
       </DialogActions>
     </Dialog>
   );
