@@ -7,6 +7,11 @@
   border-radius: 0.5rem;
   outline: 5px solid black;
   color: black;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "image content prices";
 }
 
 .title {
@@ -14,7 +19,19 @@
   margin-bottom: 0;
 }
 
+.image {
+  grid-area: image;
+  min-width: 100px;
+  height: 100%;
+  position: relative;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+}
+
 .pizzaImage {
+  max-width: 100%;
+  grid-area: image;
   width: 300px;
   border-right: 5px solid black;
 }
@@ -29,14 +46,13 @@
 }
 
 .prices {
+  grid-area: prices;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   span {
-    margin-right: 1rem;
-  }
-
-  th,
-  td {
-    padding-right: 1rem;
-    text-align: center;
+    margin-right: 2rem;
+    // font-size: 1.3rem;
   }
 }
 
@@ -55,6 +71,7 @@
 .content {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  grid-area: content;
 }

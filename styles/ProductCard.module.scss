@@ -22,9 +22,7 @@
 }
 
 .quantity {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: contents;
 }
 
 .deleteButton {
@@ -34,4 +32,8 @@
 
 .trash {
   color: red;
+}
+
+.price {
+  margin-left: 1rem;
 }

@@ -37,6 +37,9 @@ const Cart = ({ title, show, onClose, onSubmit }: ICart) => {
           />
         ))}
       </div>
+      <div>
+        <p>Total price: </p>
+      </div>
     </Dialog>
   );
 };

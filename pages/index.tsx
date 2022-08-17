@@ -73,7 +73,6 @@ const Home: NextPage = () => {
         <AiOutlineShoppingCart />
       </button>
       <main className={styles.main}>
-        {/* <Card /> */}
         <h1 className={styles.title}>Pizza</h1>
 
         <h2 className={styles.menu}>Menu</h2>
@@ -90,18 +89,26 @@ const Home: NextPage = () => {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <div className={styles.pizzaList}>
-            {pizzas.map((pizza) => (
-              <PizzaCard
-                id={pizza.id}
-                name={pizza.name}
-                prices={pizza.prices}
-                ingredients={pizza.ingredients}
-                imageUrl={pizza.imageUrl}
-                key={pizza.name}
-                setShowCart={setShowCart}
-              />
-            ))}
+          <div className={styles.grid}>
+            <div className={styles.blank}></div>
+            <div className={styles.pizzaPrices}>
+              <span>small</span>
+              <span>medium</span>
+              <span>big</span>
+            </div>
+            <div className={styles.pizzaList}>
+              {pizzas.map((pizza) => (
+                <PizzaCard
+                  id={pizza.id}
+                  name={pizza.name}
+                  prices={pizza.prices}
+                  ingredients={pizza.ingredients}
+                  imageUrl={pizza.imageUrl}
+                  key={pizza.name}
+                  setShowCart={setShowCart}
+                />
+              ))}
+            </div>
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>
