@@ -92,9 +92,9 @@ const Home: NextPage = () => {
           <div className={styles.grid}>
             <div className={styles.blank}></div>
             <div className={styles.pizzaPrices}>
-              <span>small</span>
-              <span>medium</span>
-              <span>big</span>
+              <span className={styles.small}>small</span>
+              <span className={styles.medium}>medium</span>
+              <span className={styles.big}>big</span>
             </div>
             <div className={styles.pizzaList}>
               {pizzas.map((pizza) => (

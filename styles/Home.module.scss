@@ -1,3 +1,5 @@
+@use "colors";
+
 .container {
   padding: 0 2rem;
   color: ghostwhite;
@@ -95,15 +97,36 @@
 }
 
 .pizzaPrices {
+  background: black;
+  border: 1px solid black;
+  border-radius: 1rem;
+  color: white;
+  position: sticky;
+  top: 0;
   width: 100%;
-  // height: 100px;
   grid-area: pizzaPrices;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
 
   span {
-    margin-right: 1rem;
-    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "small medium big";
+
+  .small {
+    grid-area: small;
+  }
+
+  .medium {
+    grid-area: medium;
+  }
+
+  .big {
+    grid-area: big;
   }
 }

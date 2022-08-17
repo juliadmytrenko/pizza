@@ -96,9 +96,9 @@ const PizzaCard = (props: IPizzaCard) => {
         </FormControl>
       </div>
       <div className={styles.prices}>
-        {props.prices.map((price, index) => (
-          <span className={styles.pizzaPrice}>{price}zł</span>
-        ))}
+        <span className={styles.small}>{props.prices[0]}zł</span>
+        <span className={styles.medium}>{props.prices[1]}zł</span>
+        <span className={styles.big}>{props.prices[2]}zł</span>
       </div>
     </div>
   );

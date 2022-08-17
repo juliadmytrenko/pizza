@@ -47,12 +47,33 @@
 
 .prices {
   grid-area: prices;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  // justify-content: end;
   align-items: center;
+
   span {
-    margin-right: 2rem;
+    // margin-right: 1rem;
     // font-size: 1.3rem;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 3rem;
+  }
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "small medium big";
+
+  .small {
+    grid-area: small;
+  }
+
+  .medium {
+    grid-area: medium;
+  }
+
+  .big {
+    grid-area: big;
   }
 }
 
