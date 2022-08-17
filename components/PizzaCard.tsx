@@ -82,15 +82,15 @@ const PizzaCard = (props: IPizzaCard) => {
           >
             <MenuItem value={"small"}>
               <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
-              small
+              small (30cm)
             </MenuItem>
             <MenuItem value={"medium"}>
               <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
-              medium
+              medium (40cm)
             </MenuItem>
             <MenuItem value={"big"}>
               <AiOutlineShoppingCart className={styles.shoppingCartIcon} />
-              big
+              big (50cm)
             </MenuItem>
           </Select>
         </FormControl>
