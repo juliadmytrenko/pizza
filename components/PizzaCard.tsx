@@ -26,7 +26,7 @@ const PizzaCard = ({ name, ingredients, imageUrl }: IProps) => {
         <h3>Pizza {name}</h3>
         <ul className={`${commonStyles.list} ${styles.pizzaList}`}>
           {ingredients.map((ingredient) => (
-            <li key={ingredient}>{ingredient}, </li>
+            <li key={ingredient}>{ingredient}</li>
           ))}
         </ul>
       </div>
