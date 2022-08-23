@@ -1,0 +1,45 @@
+@use "colors";
+
+.card {
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  .body {
+    flex: 3;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    .body h3 {
+      color: colors.$primary;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    border-color: colors.$primary;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    border-color: #222;
+  }
+}
+
+.image {
+  flex: 1;
+  min-width: 100px;
+  height: 100%;
+  position: relative;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+}
